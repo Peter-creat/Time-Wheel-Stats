@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Time Wheel Stats • Marketing</title>
+  <meta name="description" content="Time Wheel Stats by Peter Doss — a clean, privacy-respecting app. No subscriptions today; planned monetization in the future to support development." />
+  <meta name="theme-color" content="#0a0a14" />
+
+  <style>
+    :root{
+      --bg:#070713;
+      --bg2:#0a0a14;
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --muted2: rgba(255,255,255,.52);
+      --card: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.12);
+      --p:#ff4fd8;
+      --q:#ffd166;
+      --r:#5c7cff;
+      --radius: 18px;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(950px 650px at 12% 12%, rgba(255,79,216,.18), transparent 60%),
+        radial-gradient(900px 650px at 88% 35%, rgba(92,124,255,.20), transparent 58%),
+        radial-gradient(900px 650px at 40% 92%, rgba(255,209,102,.14), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    .wrap{
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 22px 16px 70px;
+    }
+
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom: 16px;
+    }
+
+    .brand{ display:flex; gap:12px; align-items:center; min-width:0; }
+    .emblem{
+      width:46px; height:46px; border-radius:16px;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,.35), transparent 54%),
+        conic-gradient(from 225deg, var(--p), var(--r), var(--q), var(--p));
+      box-shadow: 0 14px 46px rgba(255,79,216,.10);
+      position:relative; overflow:hidden;
+    }
+    .emblem:after{
+      content:"";
+      position:absolute; inset:-45%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+      transform: rotate(-18deg);
+      animation: sweep 5s ease-in-out infinite;
+    }
+    @keyframes sweep{
+      0%{ transform: translateX(-42%) rotate(-18deg); opacity:0; }
+      28%{ opacity:.75; }
+      55%{ opacity:0; }
+      100%{ transform: translateX(42%) rotate(-18deg); opacity:0; }
+    }
+
+    .name{ font-weight: 900; letter-spacing: .2px; line-height: 1.1; }
+    .small{ color:var(--muted); font-size:12px; }
+
+    .nav{ display:flex; gap:10px; flex-wrap:wrap; }
+    a.btn{
+      text-decoration:none;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.05);
+      padding: 10px 12px;
+      border-radius: 14px;
+      transition: transform .12s ease, border-color .12s ease;
+    }
+    a.btn:hover{ border-color: rgba(255,255,255,.28); }
+    a.btn:active{ transform: scale(.98); }
+
+    .hero{
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .hero .inner{ padding: 18px; }
+    .badge{
+      display:inline-flex; gap:8px; align-items:center;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.78);
+      font-size:12px;
+    }
+    .spark{
+      width:10px; height:10px; border-radius:50%;
+      background: var(--q);
+      box-shadow: 0 0 0 4px rgba(255,209,102,.14);
+    }
+    h1{
+      margin: 10px 0 8px;
+      font-size: 34px;
+      line-height: 1.08;
+      letter-spacing: .2px;
+    }
+    @media (max-width: 440px){ h1{ font-size: 28px; } }
+
+    p{ margin:0 0 10px; color:var(--muted); line-height: 1.65; font-size: 14px; }
+
+    .cols{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+      margin-top: 14px;
+      align-items: start;
+    }
+    @media (max-width: 900px){ .cols{ grid-template-columns: 1fr; } }
+
+    .card{
+      border-radius: var(--radius);
+      background: rgba(0,0,0,.14);
+      border: 1px solid rgba(255,255,255,.10);
+      padding: 16px;
+    }
+    .k{
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--muted2);
+      margin: 0 0 8px;
+    }
+    ul{ margin: 8px 0 0 18px; }
+    li{ color: var(--muted); line-height: 1.6; font-size: 14px; margin-bottom: 6px; }
+
+    .callout{
+      border-radius: 16px;
+      border: 1px solid rgba(92,124,255,.26);
+      background: linear-gradient(135deg, rgba(92,124,255,.16), rgba(255,79,216,.10));
+      padding: 14px;
+      margin-top: 12px;
+    }
+    .callout strong{ color: rgba(255,255,255,.90); }
+
+    .cta{
+      display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px;
+    }
+    .cta a{
+      display:inline-block;
+      text-decoration:none;
+      color: rgba(255,255,255,.95);
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-weight: 800;
+      border: 1px solid rgba(255,209,102,.28);
+      background: linear-gradient(135deg, rgba(255,209,102,.18), rgba(255,79,216,.12));
+      box-shadow: 0 16px 50px rgba(0,0,0,.35);
+    }
+
+    .info{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (max-width: 520px){ .info{ grid-template-columns: 1fr; } }
+    .mini{
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .v{
+      margin:0;
+      color: rgba(255,255,255,.9);
+      font-size: 14px;
+      word-break: break-word;
+    }
+    footer{
+      margin-top: 18px;
+      text-align:center;
+      color: rgba(255,255,255,.45);
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <div class="emblem" aria-hidden="true"></div>
+        <div style="min-width:0;">
+          <div class="name">Time Wheel Stats</div>
+          <div class="small">Marketing • Peter Doss</div>
+        </div>
+      </div>
+      <div class="nav">
+        <a class="btn" href="support.html">Support</a>
+        <a class="btn" href="privacy.html">Privacy</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="inner">
+        <span class="badge"><span class="spark" aria-hidden="true"></span> Privacy-first • Independent Developer</span>
+        <h1>Simple stats. Clear progress. Zero data collection.</h1>
+        <p>
+          Time Wheel Stats is a focused app built with care. I’m a beginner developer, but I work hard
+          to ship improvements and keep everything transparent for users and App Store reviewers.
+        </p>
+
+        <div class="cols">
+          <div class="card">
+            <div class="k">What I’m building</div>
+            <p>
+              My goal is to deliver real value through thoughtful design, smooth performance, and privacy.
+              The app is made to be easy to use and to respect the user.
+            </p>
+            <ul>
+              <li><strong>Clarity:</strong> simple screens, readable results, and predictable behavior.</li>
+              <li><strong>Stability:</strong> careful testing and frequent small improvements.</li>
+              <li><strong>Privacy:</strong> no analytics, no tracking, no data collection.</li>
+              <li><strong>Listening:</strong> user feedback directly shapes future updates.</li>
+            </ul>
+
+            <div class="callout">
+              <p style="margin:0;">
+                <strong>Transparency promise:</strong> if the app ever adds optional monetization,
+                this page and the app’s disclosures will be updated clearly and honestly.
+              </p>
+            </div>
+
+            <div class="cta">
+              <a href="mailto:peterdoss25@icloud.com?subject=Time%20Wheel%20Stats%20Feedback">Send Feedback</a>
+              <a href="privacy.html">Read Privacy Policy</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="k">Monetization</div>
+            <p>
+              Currently, the app has <strong>no paid features</strong> and <strong>no subscriptions</strong>.
+              In the future, I plan to introduce optional paid features or subscriptions to support development
+              and earn income — but only if it makes sense and stays user-friendly.
+            </p>
+            <ul>
+              <li>No payments today.</li>
+              <li>Future monetization (optional) may include premium features or subscriptions.</li>
+              <li>Any changes will be disclosed clearly in App Store and inside the app.</li>
+            </ul>
+
+            <div class="info">
+              <div class="mini">
+                <div class="k">Developer</div>
+                <p class="v">Peter Doss</p>
+              </div>
+              <div class="mini">
+                <div class="k">Contact</div>
+                <p class="v"><a href="mailto:peterdoss25@icloud.com" style="color:#ffd166; text-decoration:none;">peterdoss25@icloud.com</a></p>
+              </div>
+              <div class="mini">
+                <div class="k">App</div>
+                <p class="v">Time Wheel Stats</p>
+              </div>
+              <div class="mini">
+                <div class="k">Data</div>
+                <p class="v">No collection / No sharing</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>© <span id="y"></span> Peter Doss • Time Wheel Stats</footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
