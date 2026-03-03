@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy • Time Wheel Stats</title>
+  <meta name="description" content="Privacy Policy for Time Wheel Stats by Peter Doss. We do not collect, store, or share any personal data." />
+  <meta name="theme-color" content="#0b1020" />
+
+  <style>
+    :root{
+      --bg1:#070a12;
+      --bg2:#0b1020;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.09);
+      --stroke: rgba(255,255,255,.12);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --muted2: rgba(255,255,255,.52);
+      --accent1:#7c5cff;
+      --accent2:#00d4ff;
+      --ok:#38d39f;
+      --warn:#ffcc66;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 85% 10%, rgba(124,92,255,.35), transparent 55%),
+        radial-gradient(900px 650px at 10% 80%, rgba(0,212,255,.22), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      overflow-x:hidden;
+    }
+
+    .noise{
+      pointer-events:none;
+      position:fixed; inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+      mix-blend-mode:overlay;
+      opacity:.15;
+    }
+
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(11,16,32,.92), rgba(11,16,32,.55));
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .topbar{
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 14px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width:0;
+    }
+    .logo{
+      width:44px; height:44px; border-radius:14px;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,.35), transparent 52%),
+        conic-gradient(from 210deg, var(--accent1), var(--accent2), var(--accent1));
+      box-shadow: 0 12px 30px rgba(124,92,255,.20);
+      position:relative;
+      overflow:hidden;
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:-30%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+      transform: rotate(20deg);
+      animation: shimmer 4.2s ease-in-out infinite;
+    }
+    @keyframes shimmer{
+      0%{ transform: translateX(-40%) rotate(20deg); opacity:.0; }
+      30%{ opacity:.75; }
+      60%{ opacity:.0; }
+      100%{ transform: translateX(40%) rotate(20deg); opacity:.0; }
+    }
+    .titlewrap{ min-width:0; }
+    .appname{ font-weight: 800; letter-spacing: .2px; font-size: 14px; line-height: 1.1; }
+    .subtitle{ color:var(--muted); font-size: 12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      font-size:12px; color:var(--muted);
+      max-width: 52vw;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:50%;
+      background: var(--ok);
+      box-shadow: 0 0 0 4px rgba(56,211,159,.14);
+      flex: 0 0 auto;
+    }
+
+    main{
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 22px 16px 70px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      align-items: stretch;
+      margin-top: 10px;
+    }
+    @media (max-width: 860px){
+      .hero{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--card), rgba(255,255,255,.03));
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .card .inner{ padding: 18px; }
+
+    .headline{
+      font-size: 28px;
+      line-height: 1.15;
+      margin: 4px 0 8px;
+      letter-spacing: .2px;
+    }
+    @media (max-width: 420px){
+      .headline{ font-size: 24px; }
+    }
+
+    .lead{
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0 0 10px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .mini{
+      border-radius: 16px;
+      background: linear-gradient(180deg, var(--card2), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.10);
+      padding: 14px;
+    }
+    .k{
+      font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--muted2);
+      margin: 0 0 6px;
+    }
+    .v{
+      font-size: 14px;
+      margin: 0;
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    .policy{
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.12);
+    }
+    .policy h2{
+      font-size: 14px;
+      margin: 0 0 8px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.85);
+    }
+    .policy p, .policy li{
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .policy ul{ margin: 8px 0 0 18px; }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin-top: 14px;
+      align-items:center;
+    }
+    .btn{
+      appearance:none;
+      border: 1px solid rgba(255,255,255,.16);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+      color: var(--text);
+      padding: 12px 14px;
+      border-radius: 14px;
+      cursor:pointer;
+      font-weight: 650;
+      letter-spacing: .2px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    .btn:active{ transform: scale(.98); }
+    .btn:hover{ border-color: rgba(255,255,255,.28); }
+
+    .btn.primary{
+      border-color: rgba(124,92,255,.38);
+      background: linear-gradient(135deg, rgba(124,92,255,.35), rgba(0,212,255,.20));
+    }
+    .btn.ghost{
+      background: transparent;
+    }
+
+    .note{
+      margin-top: 10px;
+      color: var(--muted2);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    footer{
+      margin-top: 18px;
+      padding: 16px;
+      text-align:center;
+      color: rgba(255,255,255,.45);
+      font-size: 12px;
+    }
+
+    .toast{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%) translateY(20px);
+      opacity: 0;
+      pointer-events:none;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(15,18,33,.85);
+      backdrop-filter: blur(10px);
+      color: rgba(255,255,255,.86);
+      font-size: 12px;
+      transition: opacity .2s ease, transform .2s ease;
+      box-shadow: 0 20px 70px rgba(0,0,0,.55);
+      max-width: 92vw;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .toast.show{
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="titlewrap">
+          <div class="appname">Time Wheel Stats</div>
+          <div class="subtitle">Privacy Policy • Peter Doss</div>
+        </div>
+      </div>
+      <div class="pill" title="Developer contact">
+        <span class="dot" aria-hidden="true"></span>
+        <span>peterdoss25@icloud.com</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="card">
+        <div class="inner">
+          <div class="k">Transparency</div>
+          <h1 class="headline">We don’t collect any data.</h1>
+          <p class="lead">
+            Time Wheel Stats is built to be simple, private, and respectful.
+            We do not collect, store, sell, or share personal information — ever.
+          </p>
+
+          <div class="policy">
+            <h2>Privacy Policy</h2>
+            <p><strong>Developer:</strong> Peter Doss</p>
+            <p><strong>App:</strong> Time Wheel Stats</p>
+            <p>
+              This app does not collect any personal data, usage data, analytics, identifiers, or location.
+              We do not use third-party trackers or SDKs that transmit your data.
+            </p>
+            <ul>
+              <li><strong>Data Collection:</strong> None</li>
+              <li><strong>Data Storage:</strong> None</li>
+              <li><strong>Data Sharing:</strong> None</li>
+              <li><strong>Tracking:</strong> None</li>
+            </ul>
+            <p>
+              If you have any privacy questions, contact the developer:
+              <a href="mailto:peterdoss25@icloud.com" style="color: rgba(124,92,255,.95); text-decoration:none;">peterdoss25@icloud.com</a>.
+            </p>
+          </div>
+
+          <div class="actions">
+            <button class="btn primary" id="closeWebViewBtn" type="button">Close WebView</button>
+            <a class="btn ghost" href="support.html" style="text-decoration:none; display:inline-block;">Support</a>
+            <a class="btn ghost" href="marketing.html" style="text-decoration:none; display:inline-block;">Marketing</a>
+          </div>
+
+          <div class="note">
+            The “Close WebView” button sends a POST request to a local stub endpoint <code>/close-webview</code>,
+            and also tries an iOS WebKit message handler if it exists.
+          </div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <div class="inner">
+          <div class="k">Developer Info</div>
+          <div class="grid">
+            <div class="mini">
+              <div class="k">Name</div>
+              <p class="v">Peter Doss</p>
+            </div>
+            <div class="mini">
+              <div class="k">iCloud</div>
+              <p class="v">peterdoss25@icloud.com</p>
+            </div>
+            <div class="mini">
+              <div class="k">App Name</div>
+              <p class="v">Time Wheel Stats</p>
+            </div>
+            <div class="mini">
+              <div class="k">Data Policy</div>
+              <p class="v">No collection, no storage, no sharing</p>
+            </div>
+          </div>
+
+          <div class="policy" style="margin-top:12px;">
+            <h2>Effective date</h2>
+            <p>Effective immediately and applies to all users of Time Wheel Stats.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Peter Doss • Time Wheel Stats
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // ---- Function that is called by the button "Close WebView" ----
+    // Name: requestCloseWebView()
+    // It sends a POST request to a local stub endpoint and also tries iOS native bridge if available.
+    async function requestCloseWebView() {
+      showToast("Sending close request…");
+
+      // 1) Local stub request (works if your host/native app intercepts it)
+      try {
+        await fetch("/close-webview", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            action: "close_webview",
+            app: "Time Wheel Stats",
+            developer: "Peter Doss",
+            timestamp: new Date().toISOString()
+          })
+        });
+        showToast("Close request sent to /close-webview");
+      } catch (e) {
+        showToast("Local stub /close-webview not available (ok for GitHub Pages)");
+      }
+
+      // 2) iOS WKWebView message handler (optional)
+      try {
+        if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.closeWebView) {
+          window.webkit.messageHandlers.closeWebView.postMessage({ action: "close_webview" });
+          showToast("Sent message to iOS handler: closeWebView");
+        }
+      } catch (e) {
+        // Ignore safely
+      }
+
+      // 3) Optional URL scheme fallback (optional)
+      // Some apps listen for navigation to a custom scheme:
+      // location.href = "app://close-webview";
+    }
+
+    document.getElementById("closeWebViewBtn").addEventListener("click", requestCloseWebView);
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    let toastTimer = null;
+    function showToast(msg){
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(()=>t.classList.remove("show"), 2400);
+    }
+  </script>
+</body>
+</html>
